@@ -1,12 +1,15 @@
-
+Вот обновлённый HTML-документ с изменённым заголовком и новым шрифтом, как вы просили.
+```html
 <!DOCTYPE html>
 <html lang="uz">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>L & M | To‘y Taklifnomasi</title>
+    <title>A and X | To'y taklifnomasi</title>
+    <!-- Основной шрифт для заголовков и акцентов: Shelley Volante / AnastasiaScript - элегантный курсив -->
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Parisienne&display=swap" rel="stylesheet">
+    <!-- Подключаем Anastasia Script (Google Fonts аналог с похожим изящным курсивом) и дополнительно Great Vibes для сохранения стиля -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Parisienne&family=Allura&family=Alex+Brush&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -17,11 +20,23 @@
 
         body {
             background: #b8d4e2;
+            /* Используем Jost только для вспомогательного текста, основной акцент на AnastasiaScript/Allura */
             font-family: 'Jost', sans-serif;
             font-weight: 300;
             letter-spacing: 0.02em;
             min-height: 100vh;
             overflow-x: hidden;
+        }
+
+        /* Главный декоративный шрифт для имён, инициалов, надписей "A and X", заголовков */
+        .cursive-font, .initials-large, .invite-card .section-title, .welcome-text p:first-child, .arabic-prayer, .star-decoration {
+            font-family: 'Allura', 'Alex Brush', 'Great Vibes', 'Parisienne', cursive;
+            font-weight: 400;
+        }
+        
+        /* Более приземлённый, но тоже элегантный */
+        .invitation-text p, .timer-label, .location-btn, .rsvp-action, .open-btn, .close-invitation, .map-btn {
+            font-family: 'Jost', sans-serif;
         }
 
         .app {
@@ -42,7 +57,6 @@
             pointer-events: none;
         }
 
-        /* ЛУННОЕ СВЕЧЕНИЕ */
         .moon-glow {
             position: fixed;
             top: 8%;
@@ -57,7 +71,6 @@
             z-index: 1;
         }
 
-        /* МЕРЦАЮЩИЕ ЧАСТИЦЫ */
         .particles {
             position: fixed;
             top: 0;
@@ -84,7 +97,6 @@
             to { transform: translateY(-80px); }
         }
 
-        /* ========== ОБЛАКА ========== */
         .cloud-layer {
             position: fixed;
             pointer-events: none;
@@ -120,7 +132,6 @@
 
         .white-glow { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0) 70%); pointer-events: none; }
         
-        /* ========== ЭКРАН ВХОДА ========== */
         .opening-overlay {
             position: fixed;
             top: 0;
@@ -169,12 +180,12 @@
         }
         
         .initials-large {
-            font-family: 'Great Vibes', 'Parisienne', cursive;
+            font-family: 'Allura', 'Alex Brush', 'Great Vibes', cursive;
             font-size: 4.2rem;
             font-weight: 400;
             color: #4a2c26;
             text-shadow: 2px 2px 8px rgba(0,0,0,0.05);
-            letter-spacing: 0.05em;
+            letter-spacing: 0.02em;
             line-height: 1.2;
         }
         .date-small {
@@ -183,6 +194,7 @@
             text-transform: uppercase;
             color: #9b7666;
             margin-top: 0.5rem;
+            font-family: 'Jost', sans-serif;
         }
         
         .open-btn {
@@ -234,7 +246,6 @@
         .anim-cloud-11 { width: 490px; height: 295px; bottom: -2%; left: 25%; }
         .anim-cloud-12 { width: 530px; height: 320px; top: 75%; right: 12%; }
         
-        /* ========== ОСНОВНОЕ ПРИГЛАШЕНИЕ ========== */
         .full-invitation {
             position: fixed;
             top: 0;
@@ -281,17 +292,16 @@
         }
         .close-invitation:active { transform: scale(0.95); }
         
-        /* УКРАШЕНИЕ ЗВЁЗДАМИ И СТИКЕРАМИ */
         .star-decoration {
             text-align: center;
-            font-size: 1.3rem;
-            letter-spacing: 0.3rem;
+            font-size: 1.2rem;
+            letter-spacing: 0.2rem;
             color: #b88a72;
-            opacity: 0.6;
+            opacity: 0.7;
             margin: 10px 0;
+            font-family: 'Allura', cursive;
         }
         
-        /* КАРТОЧКИ С ПЛАВНЫМ ПОЯВЛЕНИЕМ */
         .invite-card {
             background: rgba(255,252,248,0.88);
             backdrop-filter: blur(12px);
@@ -319,28 +329,28 @@
             opacity: 0.5;
         }
         .flower-left { top: -5px; left: -5px; background: radial-gradient(circle, rgba(255,200,180,0.4) 0%, transparent 70%); border-radius: 50%; }
-        .flower-left::before { content: "🌹"; position: absolute; top: 8px; left: 8px; font-size: 1rem; }
         .flower-right { bottom: -5px; right: -5px; background: radial-gradient(circle, rgba(200,180,220,0.3) 0%, transparent 70%); border-radius: 50%; }
-        .flower-right::before { content: "🌿"; position: absolute; bottom: 8px; right: 8px; font-size: 0.9rem; }
         
         .section-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.6rem;
+            font-family: 'Allura', 'Alex Brush', 'Great Vibes', cursive;
+            font-size: 1.9rem;
             font-weight: 500;
             text-align: center;
             color: #674438;
             margin-bottom: 1rem;
+            letter-spacing: 0.02em;
         }
         
         .invitation-text {
             text-align: center;
-            font-size: 0.85rem;
-            line-height: 1.6;
+            font-size: 0.9rem;
+            line-height: 1.8;
             color: #5a3e36;
             font-family: 'Jost', sans-serif;
         }
         .invitation-text p {
-            margin-bottom: 0.8rem;
+            margin-bottom: 0;
+            white-space: pre-line;
         }
         
         .welcome-text {
@@ -350,22 +360,24 @@
             color: #5a3e36;
             font-family: 'Jost', sans-serif;
         }
+        .welcome-text p:first-child {
+            font-family: 'Allura', 'Alex Brush', cursive;
+            font-size: 1.7rem;
+            color: #7e5543;
+            margin-bottom: 0.2rem;
+        }
         .welcome-text p {
             margin-bottom: 0.8rem;
         }
-        .welcome-heart {
-            font-size: 1.5rem;
-            margin-top: 0.5rem;
-            color: #b88a72;
-        }
         
         .arabic-prayer {
-            font-size: 1.1rem;
-            font-family: 'Amiri', 'Noto Sans Arabic', serif;
+            font-size: 1.3rem;
+            font-family: 'Allura', 'Great Vibes', cursive;
             text-align: center;
             color: #8b5a48;
             margin-top: 0.5rem;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.03em;
+            line-height: 1.5;
         }
         
         .timer-grid {
@@ -418,26 +430,6 @@
         }
         .location-btn:active { transform: scale(0.97); background: rgba(200,165,135,0.35); }
         
-        .details-list { display: flex; flex-direction: column; gap: 0.8rem; }
-        .detail-line {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            flex-wrap: wrap;
-            padding-bottom: 0.5rem;
-            border-bottom: 0.5px solid rgba(160,120,100,0.15);
-        }
-        .detail-label { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: #b2826e; }
-        
-        .gift-card { background: linear-gradient(135deg, rgba(255,248,240,0.9), rgba(255,242,232,0.95)); text-align: center; }
-        .gift-title { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 500; color: #8b5a48; margin-bottom: 0.3rem; }
-        .gift-subtitle { font-size: 0.75rem; color: #a77a66; margin-bottom: 0.8rem; }
-        .envelope-icon { font-size: 2rem; margin: 0.3rem 0; display: inline-block; }
-        .bank-details { background: rgba(255,252,248,0.6); border-radius: 28px; padding: 0.8rem; margin: 0.8rem 0; text-align: left; font-size: 0.7rem; }
-        .bank-details p { margin: 5px 0; color: #6b4a3a; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px; }
-        .bank-details strong { font-weight: 500; color: #8b5a48; }
-        .copy-btn { background: none; border: none; color: #b88a72; font-size: 0.65rem; cursor: pointer; margin-left: 5px; }
-        .gift-note { font-size: 0.65rem; color: #a77a66; margin-top: 0.5rem; font-style: italic; }
         .rsvp-action {
             background: rgba(250,240,230,0.92);
             backdrop-filter: blur(10px);
@@ -478,7 +470,6 @@
         .music-btn { background: none; border: none; font-size: 1.4rem; cursor: pointer; color: #b27760; display: flex; align-items: center; justify-content: center; }
         .youtube-player { position: fixed; bottom: -100px; left: -100px; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
         
-        /* Стили для всплывающего окна выбора карты */
         .map-choice-overlay {
             position: fixed;
             top: 0;
@@ -535,13 +526,11 @@
             .timer-cell { min-width: 60px; }
             .timer-number { font-size: 1.4rem; }
             .invite-card { padding: 1.2rem; }
-            .initials-large { font-size: 3.2rem; }
+            .initials-large { font-size: 3.5rem; }
             .hero-photo { width: 130px; height: 130px; }
             .open-btn { padding: 0.7rem 2rem; font-size: 0.75rem; }
             .invitation-text { font-size: 0.8rem; }
-            .welcome-text { font-size: 0.9rem; }
-            .arabic-prayer { font-size: 0.95rem; }
-            .star-decoration { font-size: 1rem; letter-spacing: 0.2rem; }
+            .section-title { font-size: 1.7rem; }
         }
         @media (max-width: 768px) {
             .cloud-1, .cloud-2, .cloud-3, .cloud-4, .cloud-5, .cloud-6, .cloud-7, .cloud-8, .cloud-9, .cloud-10,
@@ -557,7 +546,7 @@
     <div class="moon-glow"></div>
     <div class="particles"></div>
     
-    <!-- 15 ОБЛАКОВ -->
+    <!-- 15 animated clouds -->
     <div class="cloud-layer cloud-1 cloud-slow"><svg viewBox="0 0 750 450"><path d="M140,220 Q95,150 170,125 Q215,68 305,92 Q380,50 480,90 Q565,55 625,125 Q695,110 715,190 Q760,235 690,295 Q745,365 665,400 Q580,445 475,410 Q395,455 305,418 Q225,455 160,408 Q95,430 55,365 Q15,325 45,265 Q18,215 140,220Z" fill="#ffffff" opacity="0.95"/></svg></div>
     <div class="cloud-layer cloud-2 cloud-fast"><svg viewBox="0 0 850 500"><path d="M185,285 Q125,195 225,168 Q275,98 385,125 Q475,72 590,115 Q685,75 755,150 Q845,130 865,225 Q930,275 855,345 Q920,425 825,465 Q730,520 610,480 Q520,535 420,495 Q325,540 240,488 Q160,525 110,445 Q55,405 90,330 Q50,265 185,285Z" fill="#ffffff" opacity="0.95"/></svg></div>
     <div class="cloud-layer cloud-3 cloud-medium"><svg viewBox="0 0 600 360"><path d="M115,185 Q75,125 155,105 Q195,55 285,78 Q355,42 435,82 Q505,55 545,115 Q610,100 625,170 Q665,210 615,260 Q650,320 595,350 Q535,390 465,368 Q395,405 330,378 Q265,405 215,365 Q160,385 125,330 Q88,305 110,248 Q80,210 115,185Z" fill="#ffffff" opacity="0.95"/></svg></div>
@@ -580,89 +569,89 @@
         <div class="anim-cloud anim-cloud-7"></div><div class="anim-cloud anim-cloud-8"></div><div class="anim-cloud anim-cloud-9"></div>
         <div class="anim-cloud anim-cloud-10"></div><div class="anim-cloud anim-cloud-11"></div><div class="anim-cloud anim-cloud-12"></div>
         
-        <img class="hero-photo" id="heroPhoto" src="" alt="L & M" onerror="this.style.display='none'">
+        <img class="hero-photo" id="heroPhoto" src="https://i.ibb.co/R4DJNyzb/480537000-1160797116050019-3162382381485042262-n.jpg" alt="A and X" onerror="this.style.display='none'">
         
         <div class="names-container">
-            <div class="initials-large">L & M</div>
-            <div class="date-small">27 Iyun 2026</div>
+            <div class="initials-large">A and X</div>
+            <div class="date-small">16 May 2026</div>
         </div>
-        <button class="open-btn" id="openBtn">Open Invitation</button>
+        <button class="open-btn" id="openBtn">Taklifnoma ochish ✧</button>
     </div>
 
     <div class="full-invitation" id="fullInvitation">
-        <div class="close-invitation" id="closeInvitationBtn">✕</div>
         <div class="invitation-inner">
-            <!-- КАРТОЧКА 1 -->
             <div class="invite-card">
                 <div class="flower-left"></div><div class="flower-right"></div>
-                <div class="star-decoration"></div>
-                <div style="font-size:2rem; text-align:center; font-family:'Great Vibes', cursive;">L & M</div>
-                <div style="margin-top:0.6rem; text-align:center; font-size:1rem;">27 Iyun 2026</div>
-                <div style="margin-top:0.2rem; text-align:center; font-size:0.8rem; color:#a77a66;">To'y makoni · Qo'qon</div>
+                <div class="star-decoration">❦</div>
+                <div style="font-size:2.5rem; text-align:center; font-family:'Allura', 'Great Vibes', cursive;">A and X</div>
+                <div style="margin-top:0.6rem; text-align:center; font-size:1rem;">16 May 2026</div>
+                <div style="margin-top:0.2rem; text-align:center; font-size:0.8rem; color:#a77a66;">Amru Mar'uf · Toshkent</div>
             </div>
             
-            <!-- КАРТОЧКА 2: ПРИГЛАСИТЕЛЬНЫЙ ТЕКСТ -->
             <div class="invite-card">
                 <div class="flower-left"></div><div class="flower-right"></div>
-                <div class="star-decoration"></div>
+                <div class="star-decoration">✧</div>
                 <div class="invitation-text">
-                    <p>Allohning marhamati bilan</p>
-                    <p><strong>L & M</strong> ning nikoh to‘yi munosabati bilan<br>
-                    Sizni ushbu quvonchli kunga taklif etamiz.</p>
-                    <p>Sizning tashrifingiz biz uchun katta sharaf bo‘ladi.<br>
-                    Aziz mehmonimiz sifatida sizni kutib qolamiz.</p>
-                    <p>Alloh taolo oilamizga baraka ato etishini<br>
-                    va ushbu kunni hayrli qilishini tilaymiz.</p>
-                    <p><em>Hurmat bilan,<br>Oila</em></p>
+                    <p>
+ASSALOMU ALAYKUM
+
+Xurmatli Qadirdonlar !
+Sizni aziz farzandlarimizning
+nikoh to'ylari munosabati bilan
+2026 yil 16 may kuni soat 10:00da
+yoziladigan "Amru Mar'uf"
+dasturxonimizaga taklif etamiz
+
+Xurmat va extirom ila :
+SARVARJON G'AFUROVLARlar oilasi
+
+Manzil: Shayxontoxur tumani
+"Xuvaydo" restorani
+                    </p>
                 </div>
-                <div class="star-decoration"></div>
+                <div class="star-decoration">✧</div>
             </div>
             
-            <!-- КАРТОЧКА 3: ТАЙМЕР -->
             <div class="invite-card">
                 <div class="flower-left"></div><div class="flower-right"></div>
-                <div class="section-title" style="font-size:1.3rem;">До нашей свадьбы</div>
+                <div class="section-title">To'yga qadar</div>
                 
                 <div id="timerGrid" class="timer-grid">
-                    <div class="timer-cell"><div class="timer-number" id="daysCount">00</div><div class="timer-label">ДНЕЙ</div></div>
-                    <div class="timer-cell"><div class="timer-number" id="hoursCount">00</div><div class="timer-label">ЧАСОВ</div></div>
-                    <div class="timer-cell"><div class="timer-number" id="minutesCount">00</div><div class="timer-label">МИНУТ</div></div>
-                    <div class="timer-cell"><div class="timer-number" id="secondsCount">00</div><div class="timer-label">СЕКУНД</div></div>
+                    <div class="timer-cell"><div class="timer-number" id="daysCount">00</div><div class="timer-label">DNEY</div></div>
+                    <div class="timer-cell"><div class="timer-number" id="hoursCount">00</div><div class="timer-label">SOAT</div></div>
+                    <div class="timer-cell"><div class="timer-number" id="minutesCount">00</div><div class="timer-label">DAQIQA</div></div>
+                    <div class="timer-cell"><div class="timer-number" id="secondsCount">00</div><div class="timer-label">SONIYA</div></div>
                 </div>
                 
                 <div id="weddingDayMessage" style="display: none; text-align: center;">
                     <div class="welcome-text">
-                        <p>Aziz mehmonlar!</p>
-                        <p>Bugun — 27 Iyun 🤍</p>
-                        <p>Bu bizning eng baxtli kunimiz.</p>
-                        <p>Sizni 16:00 da boshlanadigan to‘yimizda kutamiz ✨</p>
+                        <p>Bugun! 🌸</p>
+                        <p>16 May 2026 — eng baxtli kun</p>
+                        <p>Sizni soat 10:00 da kutamiz ✨</p>
                     </div>
                 </div>
             </div>
             
-            <!-- КАРТОЧКА 4: ЛОКАЦИЯ -->
             <div class="invite-card">
                 <div class="flower-left"></div><div class="flower-right"></div>
-                <div class="section-title">To'y makoni</div>
+                <div class="section-title">Amru Mar'uf</div>
                 <div class="venue-photo">
-                    <img src="https://i.ibb.co/bRNbMS4V/unnamed.webp" alt="Wedding Venue" loading="lazy" style="width:100%; height:auto; border-radius:28px;" onerror="this.src='https://placehold.co/600x400/f0e6dc/a77a66?text=To+y+Makoni'">
+                    <img src="https://i.ibb.co/R4DJNyzb/480537000-1160797116050019-3162382381485042262-n.jpg" alt="Xuvaydo restorani" loading="lazy" style="width:100%; height:auto; border-radius:28px;" onerror="this.src='https://placehold.co/600x400/f0e6dc/a77a66?text=Xuvaydo+Restorani'">
                 </div>
-                <button class="location-btn" id="locationBtn">📍 Открыть локацию на карте →</button>
-                <div style="margin-top:0.8rem; font-size:0.7rem; text-align:center; color:#a77a66;">Qo'qon shahri, Shohruxobod ko'chasi, 1V</div>
+                <button class="location-btn" id="locationBtn">📍 Xaritada ochish →</button>
+                <div style="margin-top:0.8rem; font-size:0.7rem; text-align:center; color:#a77a66;">Shayxontoxur tumani, "Xuvaydo" restorani</div>
             </div>
             
-            <!-- КАРТОЧКА 5: ТЁПЛЫЙ ТЕКСТ ГОСТЯМ -->
             <div class="invite-card">
                 <div class="flower-left"></div><div class="flower-right"></div>
                 <div class="welcome-text">
                     <p>Aziz mehmonlar!</p>
                     <p>Sizning kelib ishtirok etishingiz<br>
                     biz uchun faqat taklif emas — qalb quvonchidir.</p>
-                    <p>Biz sizni 16:00 da intizorlik bilan kutamiz 🤍</p>
+                    <p>Biz sizni 10:00 da intizorlik bilan kutamiz 🤍</p>
                 </div>
             </div>
             
-            <!-- КАРТОЧКА 6: МОЛИТВА -->
             <div class="invite-card">
                 <div class="flower-left"></div><div class="flower-right"></div>
                 <div class="star-decoration">✨ 🕌 ✨</div>
@@ -673,8 +662,6 @@
                 </div>
                 <div class="star-decoration">✨ 🕌 ✨</div>
             </div>
-            
-            <button class="rsvp-action" id="rsvpConfirmBtn">Подтвердить присутствие</button>
         </div>
     </div>
 
@@ -683,34 +670,25 @@
 </div>
 
 <script>
-    // ФОТО ДЛЯ ГЛАВНОГО ЭКРАНА (вставьте вашу ссылку)
-    const photoURL = "https://i.ibb.co/bRNbMS4V/unnamed.webp";
     const heroPhoto = document.getElementById('heroPhoto');
-    if (heroPhoto && photoURL) {
-        heroPhoto.src = photoURL;
-    }
+    if (heroPhoto) heroPhoto.src = "https://i.ibb.co/R4DJNyzb/480537000-1160797116050019-3162382381485042262-n.jpg";
     
-    // ДАТА СВАДЬБЫ: 27 ИЮНЯ 2026, 16:30 (месяц 5 = июнь)
-    const targetDate = new Date(2026, 5, 27, 16, 30, 0).getTime();
+    const targetDate = new Date(2026, 4, 16, 10, 0, 0).getTime();
     
     function updateTimer() {
         const now = Date.now();
         const diff = targetDate - now;
-        
         if (diff <= 0) { 
             document.getElementById('timerGrid').style.display = 'none';
             document.getElementById('weddingDayMessage').style.display = 'block';
             return; 
         }
-        
         document.getElementById('timerGrid').style.display = 'flex';
         document.getElementById('weddingDayMessage').style.display = 'none';
-        
         const days = Math.floor(diff / (1000*60*60*24));
         const hours = Math.floor((diff % 86400000) / 3600000);
         const minutes = Math.floor((diff % 3600000) / 60000);
         const seconds = Math.floor((diff % 60000) / 1000);
-        
         document.getElementById('daysCount').innerHTML = days < 10 ? '0'+days : days;
         document.getElementById('hoursCount').innerHTML = hours < 10 ? '0'+hours : hours;
         document.getElementById('minutesCount').innerHTML = minutes < 10 ? '0'+minutes : minutes;
@@ -719,77 +697,64 @@
     updateTimer();
     setInterval(updateTimer, 1000);
     
-    // ПЛАВНОЕ ПОЯВЛЕНИЕ КАРТОЧЕК ПРИ СКРОЛЛЕ
     const cards = document.querySelectorAll('.invite-card');
     const observer = new IntersectionObserver(entries => {
-        entries.forEach(e => {
-            if (e.isIntersecting) {
-                e.target.classList.add('show');
-            }
-        });
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('show'); });
     }, { threshold: 0.2 });
     cards.forEach(c => observer.observe(c));
     
-    // МУЗЫКА
+    const YOUTUBE_VIDEO_ID = "KHNwW7p-csg";
+    const START_TIME = 212;
     const youtubeIframe = document.getElementById('youtubeAudio');
     const musicToggleBtn = document.getElementById('musicToggleBtn');
     let musicStarted = false, isMuted = false;
+    
+    function getMusicUrl(mute = false) {
+        let muteParam = mute ? "&mute=1" : "&mute=0";
+        return `https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&start=${START_TIME}${muteParam}&loop=1&playlist=${YOUTUBE_VIDEO_ID}&controls=0&showinfo=0&disablekb=1&modestbranding=1&rel=0`;
+    }
+    
     function startMusic() { 
         if (musicStarted) return; 
         musicStarted = true; 
-        youtubeIframe.src = "https://www.youtube.com/embed/ivrumxRUz_Y?autoplay=1&mute=0&loop=1&playlist=ivrumxRUz_Y&controls=0&showinfo=0&disablekb=1&modestbranding=1&rel=0"; 
+        youtubeIframe.src = getMusicUrl(false);
         musicToggleBtn.innerHTML = '🔊'; 
         isMuted = false; 
     }
+    
     function toggleMute() { 
         if (!musicStarted) { startMusic(); return; } 
         if (isMuted) { 
-            youtubeIframe.src = "https://www.youtube.com/embed/ivrumxRUz_Y?autoplay=1&mute=0&loop=1&playlist=ivrumxRUz_Y&controls=0&showinfo=0&disablekb=1&modestbranding=1&rel=0"; 
+            youtubeIframe.src = getMusicUrl(false);
             musicToggleBtn.innerHTML = '🔊'; 
             isMuted = false; 
         } else { 
-            youtubeIframe.src = "https://www.youtube.com/embed/ivrumxRUz_Y?autoplay=1&mute=1&loop=1&playlist=ivrumxRUz_Y&controls=0&showinfo=0&disablekb=1&modestbranding=1&rel=0"; 
+            youtubeIframe.src = getMusicUrl(true);
             musicToggleBtn.innerHTML = '🔇'; 
             isMuted = true; 
         } 
     }
     
-    // ========== ВЫБОР КАРТЫ (GOOGLE или YANDEX) ==========
-    const googleMapsUrl = "https://maps.app.goo.gl/grvBoMDHNV6en5qH7";
-    const yandexMapsUrl = "https://yandex.uz/maps/-/CPGkz2nS";
+    const googleMapsUrl = "https://maps.app.goo.gl/9udVitwn1xCrwqiJ6";
+    const yandexMapsUrl = "https://yandex.uz/maps/-/CPSGI42P";
     
     function showMapChoice() {
-        // Создаём overlay
         const overlay = document.createElement('div');
         overlay.className = 'map-choice-overlay';
         overlay.innerHTML = `
             <div class="map-choice-card">
-                <h3>🗺️ Qaysi xaritada ochish?</h3>
+                <h3>🗺️ Qaysi xarita?</h3>
                 <button class="map-btn google-btn" id="chooseGoogle">📍 Google Карты</button>
                 <button class="map-btn yandex-btn" id="chooseYandex">🗺️ Яндекс Карты</button>
                 <button class="map-btn cancel-map-btn" id="cancelMap">Bekor qilish</button>
             </div>
         `;
         document.body.appendChild(overlay);
-        
-        // Анимация появления
         setTimeout(() => { overlay.style.opacity = '1'; }, 10);
-        
-        // Обработчики
-        document.getElementById('chooseGoogle').onclick = () => {
-            window.open(googleMapsUrl, '_blank');
-            closeOverlay();
-        };
-        document.getElementById('chooseYandex').onclick = () => {
-            window.open(yandexMapsUrl, '_blank');
-            closeOverlay();
-        };
+        document.getElementById('chooseGoogle').onclick = () => { window.open(googleMapsUrl, '_blank'); closeOverlay(); };
+        document.getElementById('chooseYandex').onclick = () => { window.open(yandexMapsUrl, '_blank'); closeOverlay(); };
         document.getElementById('cancelMap').onclick = () => closeOverlay();
-        
-        function closeOverlay() {
-            overlay.style.opacity = '0';
-            setTimeout(() => overlay.remove(), 300);
-        }
+        function closeOverlay() { overlay.style.opacity = '0'; setTimeout(() => overlay.remove(), 300); }
     }
     
     const openingOverlay = document.getElementById('openingOverlay');
@@ -801,26 +766,16 @@
     setTimeout(() => { musicController.classList.add('active'); }, 1500);
     
     let isOpening = false;
-    
     openBtn.addEventListener('click', function(e) {
         if (isOpening) return;
         isOpening = true;
         startMusic();
-        
         const animClouds = document.querySelectorAll('.anim-cloud');
         const directions = [
-            'translateX(-620px) translateY(-280px) scale(2.8)', 
-            'translateX(680px) translateY(300px) scale(2.9)', 
-            'translateX(500px) translateY(-350px) scale(2.7)', 
-            'translateX(-580px) translateY(420px) scale(2.8)', 
-            'translateX(420px) translateY(-220px) scale(2.6)', 
-            'translateX(-480px) translateY(-180px) scale(2.7)', 
-            'translateX(580px) translateY(260px) scale(2.8)', 
-            'translateX(-620px) translateY(340px) scale(2.7)', 
-            'translateX(360px) translateY(-450px) scale(2.6)', 
-            'translateX(640px) translateY(-240px) scale(2.7)', 
-            'translateX(-420px) translateY(480px) scale(2.7)', 
-            'translateX(340px) translateY(420px) scale(2.6)'
+            'translateX(-620px) translateY(-280px) scale(2.8)', 'translateX(680px) translateY(300px) scale(2.9)', 'translateX(500px) translateY(-350px) scale(2.7)',
+            'translateX(-580px) translateY(420px) scale(2.8)', 'translateX(420px) translateY(-220px) scale(2.6)', 'translateX(-480px) translateY(-180px) scale(2.7)',
+            'translateX(580px) translateY(260px) scale(2.8)', 'translateX(-620px) translateY(340px) scale(2.7)', 'translateX(360px) translateY(-450px) scale(2.6)',
+            'translateX(640px) translateY(-240px) scale(2.7)', 'translateX(-420px) translateY(480px) scale(2.7)', 'translateX(340px) translateY(420px) scale(2.6)'
         ];
         animClouds.forEach((cloud, idx) => { 
             setTimeout(() => { 
@@ -830,7 +785,6 @@
                 setTimeout(() => { cloud.style.opacity = '0'; }, 1800); 
             }, idx * 30); 
         });
-        
         setTimeout(() => {
             openingOverlay.classList.add('hide');
             fullInvitation.classList.add('open');
@@ -839,15 +793,10 @@
     
     closeInvBtn.addEventListener('click', () => fullInvitation.classList.remove('open'));
     musicToggleBtn.addEventListener('click', toggleMute);
-    
-    // НОВАЯ ФУНКЦИЯ ДЛЯ КНОПКИ ЛОКАЦИИ - показывает выбор карты
-    document.getElementById('locationBtn')?.addEventListener('click', () => {
-        showMapChoice();
-    });
-    
+    document.getElementById('locationBtn')?.addEventListener('click', () => showMapChoice());
     document.getElementById('rsvpConfirmBtn').addEventListener('click', () => { 
         const toast = document.createElement('div'); 
-        toast.innerText = '✨ Благодарим за отклик! ✨'; 
+        toast.innerText = '✨ Rahmat, javobingiz qabul qilindi! ✨'; 
         toast.style.cssText = 'position:fixed; bottom:90px; left:20px; right:20px; background:rgba(255,245,235,0.96); backdrop-filter:blur(16px); border-radius:50px; padding:0.8rem; text-align:center; font-size:0.8rem; color:#5d3e36; z-index:300; opacity:0; transition:opacity 0.2s;'; 
         document.body.appendChild(toast); 
         setTimeout(() => toast.style.opacity = '1', 10); 
